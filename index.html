@@ -41,12 +41,19 @@
 		</div>
 
 		<div ng-repeat="result in results">
-			<span style="font-size:20px; margin-left:10px;">
-        		{{result.title}}
-    		</span>
+			<div class="panel panel-default">
+				<div class="panel-body">
+						{{result.title}}<br>
+        				Ranking: {{result.rank}}<br>
+        				<a href="{{result.f2f}}" target="_blank">Click Here for the Recipe<br></a>
+        				<a href="{{result.url}}" target="_blank">Source</a>
+				</div>
+			</div>
 		</div>
 
 	</script>
 </body>
 
 </html>
+					 <!--<span style="font-size:20px; margin-left:10px;">-->
+					     				<!--// </span>-->

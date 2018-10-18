@@ -54,14 +54,18 @@ angular.module('Search', ['ui.router'])
 
                     for (var i = 0; i < response.data.count; i++) {
                         console.log(response.data[i]);
-                        
+                        console.log('Title: ' + response.data.recipes[i].title);
                         $scope.results.push({
-                            title: response.data.recipes[i].title
+                            title: response.data.recipes[i].title,
+                            url: response.data.recipes[i].source_url,
+                            f2f: response.data.recipes[i].f2f_url,
+                            rank: response.data.recipes[i].social_rank
                             //   upvotes: 0,
                             //   comments: [
                             //   ]
                         });
                     }
+                    ingredients = [];
 
                     $scope.formContent = '';
                     // $scope.greeting = response.data;
