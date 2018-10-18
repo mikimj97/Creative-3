@@ -24,36 +24,57 @@
 	<script type="text/ng-template" id="/home.html">
 		<div class="page-header">
 			<h1>What can I cook?</h1>
-			<h5>Don't know what to cook with what you have? Well just type your ingredients and find out what you can cook! Be sure to put a space for each ingredients</h5>
+			<h5>Don't know what to cook with what you have? Well, just type in your ingredients and find out what you can cook! Enter the ingredients one at a time.</h5>
 
 
-			<form ng-submit="addToList()" <h6>Put items to list</h6>
+			<form ng-submit="addToList()" <h6>Add items to list</h6>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Ingredients" ng-model="formContent"></input>
 				</div>
 				<button type="submit" class="btn btn-primary">Add To List</button>
 			</form>
 
+			<div ng-hide="div1">
+				<p><b>List of ingredients:</b></p>
+				<div ng-repeat="item in ingredients">
+					<button type="button" ng-click="removeIngredient(item)" class="btn btn-default">
+						<span class="glyphicon glyphicon-remove">
+							{{item}}<br>
+						</span>
+					</button>
+				</div>
+				<br>
+				<form ng-submit="searchFood()">
+					<button type="submit " class="btn btn-primary ">Search</button>
+				</form>
+			</div>
 
-			<form ng-submit="searchFood()" <h6>Type your ingredients</h6>
-				<button type="submit" class="btn btn-primary">Search</button>
-			</form>
-		</div>
 
-		<div ng-repeat="result in results">
-			<div class="panel panel-default">
-				<div class="panel-body">
-						{{result.title}}<br>
-        				Ranking: {{result.rank}}<br>
-        				<a href="{{result.f2f}}" target="_blank">Click Here for the Recipe<br></a>
-        				<a href="{{result.url}}" target="_blank">Source</a>
+
+
+		<p ng-hide="p2 "><b>Favorite recipes:</b></p>
+			<div ng-repeat="recipe in favorites">
+				<button type="button" ng-click="removeFavorite(recipe)" class="btn btn-default">
+						<span class="glyphicon glyphicon-remove">
+							{{recipe.title}}<br>
+						</span>
+					</button>
+			</div>
+
+			<div ng-repeat="result in results">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						{{result.title}}<br> Ranking: {{result.rank}}<br>
+						<a href="{{result.f2f}}" target="_blank">Click Here for the Recipe<br></a>
+						<a href="{{result.url}}" target="_blank">Source<br></a>
+						<a ng-click="addToFavorites(result)">Click here to add to favorites!</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
 	</script>
 </body>
 
 </html>
-					 <!--<span style="font-size:20px; margin-left:10px;">-->
-					     				<!--// </span>-->
+<!--<span style="font-size:20px; margin-left:10px;">-->
+<!--// </span>-->
