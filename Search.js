@@ -83,13 +83,13 @@ angular.module('Search', ['ui.router'])
             $scope.removeIngredient = function(recipe) {
                 console.log(recipe);
                 console.log($scope.ingredients.indexOf(recipe));
-                $scope.ingredients.splice(0, $scope.ingredients.indexOf(recipe));
+                $scope.ingredients.splice($scope.ingredients.indexOf(recipe), 1);
             };
             
             $scope.removeFavorite = function(recipe) {
                 console.log(recipe);
                 console.log($scope.favorites.indexOf(recipe));
-                $scope.favorites.splice(0, $scope.favorites.indexOf(recipe));
+                $scope.favorites.splice($scope.favorites.indexOf(recipe), 1);
             }
         }
     ])
