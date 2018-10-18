@@ -56,7 +56,7 @@
 				<button type="button" ng-click="removeFavorite(recipe)" class="btn btn-default" id="removeFavoriteButton">
 						<span class="glyphicon glyphicon-remove">
 						</button>
-							{{recipe.title}}<br>
+							<a href="{{recipe.f2f}}" target="_blank" id ="favorites">{{recipe.title}}</a><br>
 						</span>
 			</div>
 			<div ng-repeat="result in results">

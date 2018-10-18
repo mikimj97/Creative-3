@@ -26,3 +26,6 @@ a {
     border: none;
     background: none;
 }
+#favorites {
+    text-decoration: none;
+}
