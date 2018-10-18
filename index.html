@@ -2,11 +2,14 @@
 
 <head>
 	<title>What Should I Cook?</title>
+
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="main.css" type="text/css" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
 	<script src="Search.js"></script>
+
 </head>
 
 <body ng-app="Search">
@@ -15,11 +18,6 @@
 			<ui-view></ui-view>
 		</div>
 	</div>
-
-	<!--<div ng-controller="Hello">-->
-	<!--	<p>The ID is {{greeting.recipes[0].title}}</p>-->
-	<!--	<p>The content is {{greeting.recipes[0].publisher}}</p>-->
-	<!--</div>-->
 
 	<script type="text/ng-template" id="/home.html">
 		<div class="page-header">
@@ -35,13 +33,14 @@
 			</form>
 
 			<div ng-hide="div1">
-				<p><b>List of ingredients:</b></p>
+				<p><b>List of Ingredients:</b></p>
 				<div ng-repeat="item in ingredients">
-					<button type="button" ng-click="removeIngredient(item)" class="btn btn-default">
+					<button type="button" ng-click="removeIngredient(item)" class="btn btn-default" id="removeButton">
 						<span class="glyphicon glyphicon-remove">
-							{{item}}<br>
-						</span>
-					</button>
+						</button> {{item}}
+					<br>
+
+					</span>
 				</div>
 				<br>
 				<form ng-submit="searchFood()">
@@ -52,21 +51,21 @@
 
 
 
-		<p ng-hide="p2 "><b>Favorite recipes:</b></p>
+			<p ng-hide="p2 "><b>Favorite recipes:</b></p>
 			<div ng-repeat="recipe in favorites">
-				<button type="button" ng-click="removeFavorite(recipe)" class="btn btn-default">
+				<button type="button" ng-click="removeFavorite(recipe)" class="btn btn-default" id="removeFavoriteButton">
 						<span class="glyphicon glyphicon-remove">
+						</button>
 							{{recipe.title}}<br>
 						</span>
-					</button>
 			</div>
-
 			<div ng-repeat="result in results">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						{{result.title}}<br> Ranking: {{result.rank}}<br>
+						<img src="{{result.image}}" alt="Foodz" width="100" height="80" align="top"> {{result.title}}
+						<br>
 						<a href="{{result.f2f}}" target="_blank">Click Here for the Recipe<br></a>
-						<a href="{{result.url}}" target="_blank">Source<br></a>
+						<a href="{{result.url}}" target="_blank">Source</a><br>
 						<a ng-click="addToFavorites(result)">Click here to add to favorites!</a>
 					</div>
 				</div>
@@ -76,5 +75,3 @@
 </body>
 
 </html>
-<!--<span style="font-size:20px; margin-left:10px;">-->
-<!--// </span>-->

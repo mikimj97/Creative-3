@@ -1,0 +1,28 @@
+img {
+    border-radius: 5px;
+    float: right;
+}
+
+.panel {
+    /*position: relative;*/
+    /*left: -100px;*/
+    width: 65%;
+}
+
+a {
+    cursor: pointer;
+}
+
+#removeButton {
+    margin-bottom: 4px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+#removeFavoriteButton {
+    margin-bottom: 4px;
+    padding: 0;
+    border: none;
+    background: none;
+}
