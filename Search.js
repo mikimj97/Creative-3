@@ -43,11 +43,12 @@ angular.module('Search', ['ui.router'])
                 console.log('In serach food');
                 console.log('array' + $scope.ingredients);
                 var searches = $scope.ingredients.join();
-                var link = 'https://www.food2fork.com/api/search?key=d02ad68f83bf27815c12516a7f7262cc&q=' + searches;
+                var link = 'https://www.food2fork.com/api/search?key=508ceecf409eca2336666df2f707fac1&q=' + searches;
+
                 $http.get(link).
                 then(function(response) {
                     $scope.results = [];
-
+                    
                     for (var i = 0; i < response.data.count; i++) {
                         $scope.results.push({
                             title: response.data.recipes[i].title,
